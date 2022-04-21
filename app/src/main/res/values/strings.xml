@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Projekt_kalendarz</string>
+    <string name="day_Monday">M</string>
+    <string name="day_Tuesday">T</string>
+    <string name="day_Wednesday">W</string>
+    <string name="day_Thursday">T</string>
+    <string name="day_Friday">F</string>
+    <string name="day_Saturday">S</string>
+    <string name="day_Sunday">S</string>
+
+</resources>
