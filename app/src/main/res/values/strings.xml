@@ -7,5 +7,32 @@
     <string name="day_Friday">F</string>
     <string name="day_Saturday">S</string>
     <string name="day_Sunday">S</string>
-
+    <string name="arrow_left">&lt;-</string>
+    <string name="arrow_right">-&gt;</string>
+    <string name="Jan">January</string>
+    <string name="Feb">February</string>
+    <string name="March">March</string>
+    <string name="April">April</string>
+    <string name="May">May</string>
+    <string name="June">June</string>
+    <string name="July">July</string>
+    <string name="Aug">August</string>
+    <string name="Sep">September</string>
+    <string name="Oct">October</string>
+    <string name="Nov">November</string>
+    <string name="Dec">December</string>
+    <string-array name="months_array">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 </resources>

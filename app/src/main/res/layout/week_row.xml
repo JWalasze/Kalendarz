@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="@string/day_Monday"
+        android:textColor="@color/teal_200"
         android:gravity="center" />
 
     <TextView
@@ -18,6 +19,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="@string/day_Tuesday"
+        android:textColor="@color/teal_200"
         android:gravity="center" />
 
     <TextView
@@ -25,6 +27,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="@string/day_Wednesday"
+        android:textColor="@color/teal_200"
         android:gravity="center" />
 
     <TextView
@@ -32,6 +35,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="@string/day_Thursday"
+        android:textColor="@color/teal_200"
         android:gravity="center" />
 
     <TextView
@@ -39,6 +43,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="@string/day_Friday"
+        android:textColor="@color/teal_200"
         android:gravity="center" />
 
     <TextView
@@ -46,6 +51,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="@string/day_Saturday"
+        android:textColor="@color/teal_200"
         android:gravity="center" />
 
     <TextView
@@ -53,6 +59,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:text="@string/day_Sunday"
+        android:textColor="@color/teal_200"
         android:gravity="center" />
 
 </LinearLayout>
