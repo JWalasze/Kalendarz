@@ -8,9 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="4"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp">
+        android:weightSum="4" >
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ButtonPrevMonth"
@@ -22,7 +20,7 @@
             android:onClick="previousMonthAction"/>
 
         <TextView
-            android:id="@+id/TextMonth"
+            android:id="@+id/monthYearTV"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
