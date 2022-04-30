@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), CallenderAdapter.OnItemListener
         val firstOfMonth: LocalDate  = selectedDate.withDayOfMonth(1)
         val dayOfWeek: Int = firstOfMonth.dayOfWeek.value
 
-        for (i in 1..42)
+        for (i in 2..42)
         {
             if (i <= dayOfWeek ||  i > daysInMonth + dayOfWeek)
             {
@@ -88,10 +88,10 @@ class MainActivity : AppCompatActivity(), CallenderAdapter.OnItemListener
 
     override fun onItemClick(position: Int, dayText: String?)
     {
-        if (dayText == "")
+        if (dayText != "")
         {
             val message: String = "Selected Date" + dayText + "" + monthYearFromDate(selectedDate)
-            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
         }
     }
 }
