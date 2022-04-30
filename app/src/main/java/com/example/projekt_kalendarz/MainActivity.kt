@@ -92,6 +92,7 @@ class MainActivity : AppCompatActivity(), CallenderAdapter.OnItemListener
         {
             val message: String = "Selected Date" + dayText + "" + monthYearFromDate(selectedDate)
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            setContentView(R.layout.activity_main)
         }
     }
 }
