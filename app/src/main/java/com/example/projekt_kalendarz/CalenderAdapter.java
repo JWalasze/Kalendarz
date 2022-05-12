@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CallenderAdapter extends RecyclerView.Adapter<CallenderViewHolder>
+public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder>
 {
     private final ArrayList<String> daysOfMonth;
     private final OnItemListener onItemListener;
 
-    public CallenderAdapter(ArrayList<String> daysOfMonth, OnItemListener onItemListener)
+    public CalenderAdapter(ArrayList<String> daysOfMonth, OnItemListener onItemListener)
     {
         this.daysOfMonth = daysOfMonth;
         this.onItemListener = onItemListener;
@@ -22,17 +22,17 @@ public class CallenderAdapter extends RecyclerView.Adapter<CallenderViewHolder>
 
     @NonNull
     @Override
-    public CallenderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    public CalenderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.callender_cell, parent, false);
+        View view = inflater.inflate(R.layout.calender_cell, parent, false);
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        layoutParams.height = (int) (parent.getHeight() * 0.1666666);
-        return new CallenderViewHolder(view, onItemListener);
+        layoutParams.height = (int) (parent.getHeight() * 0.12);
+        return new CalenderViewHolder(view, onItemListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CallenderViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull CalenderViewHolder holder, int position)
     {
         holder.dayOfMonth.setText(daysOfMonth.get(position));
     }

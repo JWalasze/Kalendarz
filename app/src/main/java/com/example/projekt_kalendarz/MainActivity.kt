@@ -1,11 +1,10 @@
 package com.example.projekt_kalendarz
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.GridLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.time.LocalDate
@@ -13,12 +12,14 @@ import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
 
-class MainActivity : AppCompatActivity(), CallenderAdapter.OnItemListener
+class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
 {
 
     private lateinit var monthYearText: TextView
     private lateinit var calenderRecycleView: RecyclerView
     private lateinit var selectedDate: LocalDate
+    private lateinit var dayTextInView: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -29,17 +30,22 @@ class MainActivity : AppCompatActivity(), CallenderAdapter.OnItemListener
         setMonthView()
     }
 
+
+
     private fun initWidgets()
     {
         calenderRecycleView = findViewById(R.id.calenderRecycleView)
         monthYearText = findViewById(R.id.monthYearTV)
+
+
     }
 
     private fun setMonthView()
     {
         monthYearText.text = monthYearFromDate(selectedDate)
         val daysInMonth: ArrayList<String> = daysInMonthArray(selectedDate)
-        val calenderAdapter: CallenderAdapter = CallenderAdapter(daysInMonth, this)
+        val calenderAdapter: CalenderAdapter =
+            CalenderAdapter(daysInMonth, this)
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(applicationContext, 7)
         calenderRecycleView.layoutManager = layoutManager
         calenderRecycleView.adapter = calenderAdapter
@@ -54,7 +60,7 @@ class MainActivity : AppCompatActivity(), CallenderAdapter.OnItemListener
         val firstOfMonth: LocalDate  = selectedDate.withDayOfMonth(1)
         val dayOfWeek: Int = firstOfMonth.dayOfWeek.value
 
-        for (i in 2..42)
+        for (i in 2..43)
         {
             if (i <= dayOfWeek ||  i > daysInMonth + dayOfWeek)
             {
@@ -86,13 +92,22 @@ class MainActivity : AppCompatActivity(), CallenderAdapter.OnItemListener
         setMonthView()
     }
 
+
+
     override fun onItemClick(position: Int, dayText: String?)
     {
         if (dayText != "")
         {
             val message: String = "Selected Date" + dayText + "" + monthYearFromDate(selectedDate)
             Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-            setContentView(R.layout.activity_main)
+
+
+
+            setContentView(R.layout.day_view)
+            dayTextInView = findViewById(R.id.textViewDay)
+            dayTextInView.text = dayText
+
+
         }
     }
 }

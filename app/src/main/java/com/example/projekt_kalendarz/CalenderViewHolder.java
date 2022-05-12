@@ -6,12 +6,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class CallenderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+public class CalenderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
 {
     public final TextView dayOfMonth;
-    private final CallenderAdapter.OnItemListener onItemListener;
+    private final CalenderAdapter.OnItemListener onItemListener;
 
-    public CallenderViewHolder(@NonNull View itemView, CallenderAdapter.OnItemListener onItemListener)
+    public CalenderViewHolder(@NonNull View itemView, CalenderAdapter.OnItemListener onItemListener)
     {
         super(itemView);
         dayOfMonth = itemView.findViewById(R.id.cellDayText);
