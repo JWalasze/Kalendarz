@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/drawable/circle.xml" value="0.2085" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/drawable/days_rectangle.xml" value="0.247" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/drawable/month_rectangle.xml" value="0.2085" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/drawable/rectangle.xml" value="0.2085" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout-land/month_view.xml" value="0.21516754850088182" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout-large/month_view.xml" value="0.2" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout-sw600dp/month_view.xml" value="0.12708333333333333" />
@@ -12,6 +16,7 @@
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/callender_cell.xml" value="0.20863616930312098" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/day_view.xml" value="0.20863616930312098" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/day_view_full.xml" value="0.20863616930312098" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/day_view_item.xml" value="0.20863616930312098" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/month_view.xml" value="0.25" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/week_row.xml" value="0.20863616930312098" />
       </map>

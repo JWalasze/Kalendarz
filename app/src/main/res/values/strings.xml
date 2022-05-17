@@ -21,6 +21,17 @@
     <string name="Oct">October</string>
     <string name="Nov">November</string>
     <string name="Dec">December</string>
+    <string name="taskDetails">taskDetails</string>
+    <string name="dzien_poniedzialek">Pon</string>
+    <string name="dzien_wtorek">Wto</string>
+    <string name="dzien_sroda">Śro</string>
+    <string name="dzien_czwartek">Czw</string>
+    <string name="dzien_piatek">Pią</string>
+    <string name="dzien_sobota">Sob</string>
+    <string name="dzien_niedziela">Nie</string>
+    <string name="buttonLeft"><![CDATA[<]]></string>
+    <string name="buttonRight"><![CDATA[>]]></string>
+    <string name="miesiąc">Miesiąc</string>
     <string-array name="months_array">
         <item>January</item>
         <item>February</item>
@@ -35,4 +46,5 @@
         <item>November</item>
         <item>December</item>
     </string-array>
+
 </resources>

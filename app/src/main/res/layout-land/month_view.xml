@@ -1,360 +1,433 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <View
+        android:id="@+id/marginLeft"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintRight_toLeftOf="@id/monthYearTV"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:id="@+id/marginRight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintLeft_toRightOf="@id/marginTop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <View
+        android:id="@+id/marginTop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="2"
+        app:layout_constraintHorizontal_weight="150"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/marginLeft"
+        app:layout_constraintBottom_toTopOf="@id/dayBackground1"
+        app:layout_constraintRight_toLeftOf="@id/marginRight"/>
+
+    <View
+        android:id="@+id/marginBottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="2"
+        app:layout_constraintHorizontal_weight="150"
+        app:layout_constraintTop_toBottomOf="@id/dayBackgroundLeft"
+        app:layout_constraintLeft_toRightOf="@id/marginLeft"
+        app:layout_constraintRight_toLeftOf="@id/marginRight"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:id="@+id/marginTopMonth"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="2"
+        app:layout_constraintRight_toLeftOf="@id/marginMiddle"
+        app:layout_constraintLeft_toRightOf="@id/marginLeft"
+        app:layout_constraintBottom_toTopOf="@id/monthYearTV"
+        app:layout_constraintTop_toBottomOf="@+id/dayBackground1"/>
+
+    <View
+        android:id="@+id/marginBottomMonth"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="2"
+        app:layout_constraintTop_toBottomOf="@id/monthYearTV"
+        app:layout_constraintBottom_toTopOf="@id/dayBackgroundLeft"
+        app:layout_constraintLeft_toRightOf="@id/marginLeft"
+        app:layout_constraintRight_toLeftOf="@id/marginMiddle" />
+
+    <View
+        android:id="@+id/marginRightMonth"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/marginMiddle"
+        app:layout_constraintRight_toLeftOf="@id/marginRight"
+        app:layout_constraintTop_toBottomOf="@id/marginLeft2"
+        app:layout_constraintBottom_toBottomOf="@id/marginBottomMonth"/>
+
     <TextView
-        android:id="@+id/TextView1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:text="Cokolwiek długiego musi byc" />
+        android:id="@+id/monthYearTV"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/miesiąc"
+        android:maxLines="1"
+        android:textStyle="bold"
+        android:autoSizeTextType="uniform"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:background="@drawable/rectangle"
+        app:layout_constraintHorizontal_weight="100"
+        app:layout_constraintVertical_weight="7"
+        app:layout_constraintBottom_toTopOf="@id/marginBottomMonth"
+        app:layout_constraintRight_toLeftOf="@id/marginMiddle"
+        app:layout_constraintLeft_toRightOf="@id/marginLeft"
+        app:layout_constraintTop_toBottomOf="@+id/marginTopMonth"
+        android:onClick="previousMonthAction" />
 
-    <include
-        android:id="@+id/days_row"
-        layout="@layout/week_row"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@id/TextView1" />
+    <View
+        android:id="@+id/dayBackgroundLeft"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintVertical_weight="50"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintBottom_toTopOf="@id/marginBottom"
+        app:layout_constraintRight_toLeftOf="@id/marginMiddle"
+        app:layout_constraintLeft_toRightOf="@id/marginLeft"
+        app:layout_constraintTop_toBottomOf="@id/marginBottomMonth" />
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/days_row"
+    <TextView
+        android:id="@+id/Mon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/dzien_poniedzialek"
         android:gravity="center"
-        android:orientation="vertical"
-        android:weightSum="1"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/TextView1">
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/days_rectangle"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintTop_toBottomOf="@id/marginInsideTop"
+        app:layout_constraintBottom_toTopOf="@id/calenderRecycleView"
+        app:layout_constraintLeft_toRightOf="@id/ButtonPrevMonth"
+        app:layout_constraintRight_toLeftOf="@id/Tue" />
 
-        <LinearLayout
-            android:id="@+id/first_week_line"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
+    <TextView
+        android:id="@+id/Tue"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/dzien_wtorek"
+        android:gravity="center"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/days_rectangle"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintTop_toBottomOf="@id/marginInsideTop"
+        app:layout_constraintBottom_toTopOf="@id/calenderRecycleView"
+        app:layout_constraintLeft_toRightOf="@id/Mon"
+        app:layout_constraintRight_toLeftOf="@id/Wed" />
 
-            <LinearLayout
-                android:id="@+id/day_1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <TextView
+        android:id="@+id/Wed"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/dzien_sroda"
+        android:gravity="center"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/days_rectangle"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintTop_toBottomOf="@id/marginInsideTop"
+        app:layout_constraintBottom_toTopOf="@id/calenderRecycleView"
+        app:layout_constraintLeft_toRightOf="@id/Tue"
+        app:layout_constraintRight_toLeftOf="@id/Thu" />
 
-            <LinearLayout
-                android:id="@+id/day_2"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <TextView
+        android:id="@+id/Thu"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/dzien_czwartek"
+        android:gravity="center"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/days_rectangle"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintTop_toBottomOf="@id/marginInsideTop"
+        app:layout_constraintBottom_toTopOf="@id/calenderRecycleView"
+        app:layout_constraintLeft_toRightOf="@id/Wed"
+        app:layout_constraintRight_toLeftOf="@id/Fri" />
 
-            <LinearLayout
-                android:id="@+id/day_3"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <TextView
+        android:id="@+id/Fri"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/dzien_piatek"
+        android:gravity="center"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/days_rectangle"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintTop_toBottomOf="@id/marginInsideTop"
+        app:layout_constraintBottom_toTopOf="@id/calenderRecycleView"
+        app:layout_constraintLeft_toRightOf="@id/Thu"
+        app:layout_constraintRight_toLeftOf="@id/Sat" />
 
-            <LinearLayout
-                android:id="@+id/day_4"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <TextView
+        android:id="@+id/Sat"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/dzien_sobota"
+        android:gravity="center"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/days_rectangle"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintTop_toBottomOf="@id/marginInsideTop"
+        app:layout_constraintBottom_toTopOf="@id/calenderRecycleView"
+        app:layout_constraintLeft_toRightOf="@id/Fri"
+        app:layout_constraintRight_toLeftOf="@id/Sun" />
 
-            <LinearLayout
-                android:id="@+id/day_5"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <TextView
+        android:id="@+id/Sun"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/dzien_niedziela"
+        android:gravity="center"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginVertical="5dp"
+        android:background="@drawable/days_rectangle"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintTop_toBottomOf="@id/marginInsideTop"
+        app:layout_constraintBottom_toTopOf="@id/calenderRecycleView"
+        app:layout_constraintLeft_toRightOf="@id/Sat"
+        app:layout_constraintRight_toLeftOf="@id/ButtonNextMonth" />
 
-            <LinearLayout
-                android:id="@+id/day_6"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/calenderRecycleView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/days_rectangle"
+        app:layout_constraintVertical_weight="40"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintBottom_toTopOf="@id/marginInsideBottom"
+        app:layout_constraintRight_toLeftOf="@id/ButtonNextMonth"
+        app:layout_constraintLeft_toRightOf="@id/ButtonPrevMonth"
+        app:layout_constraintTop_toBottomOf="@id/Mon" />
 
-            <LinearLayout
-                android:id="@+id/day_7"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-        </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ButtonPrevMonth"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/buttonLeft"
+        android:gravity="center"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:textColor="@color/white"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintTop_toTopOf="@id/dayBackgroundLeft"
+        app:layout_constraintBottom_toBottomOf="@id/dayBackgroundLeft"
+        app:layout_constraintLeft_toLeftOf="@id/dayBackgroundLeft"
+        app:layout_constraintRight_toLeftOf="@id/marginInsideTop" />
 
-        <LinearLayout
-            android:id="@+id/second_week_line"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ButtonNextMonth"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/buttonRight"
+        android:gravity="center"
+        android:maxLines="1"
+        android:autoSizeTextType="uniform"
+        android:textColor="@color/white"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintTop_toTopOf="@id/dayBackgroundLeft"
+        app:layout_constraintBottom_toBottomOf="@id/dayBackgroundLeft"
+        app:layout_constraintLeft_toRightOf="@id/marginInsideTop"
+        app:layout_constraintRight_toRightOf="@id/dayBackgroundLeft"
+        android:onClick="nextMonthAction" />
 
-            <LinearLayout
-                android:id="@+id/day_8"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <View
+        android:id="@+id/marginInsideTop"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintRight_toLeftOf="@id/ButtonNextMonth"
+        app:layout_constraintLeft_toRightOf="@id/ButtonPrevMonth"
+        app:layout_constraintBottom_toTopOf="@id/Mon"
+        app:layout_constraintTop_toTopOf="@id/dayBackgroundLeft" />
 
-            <LinearLayout
-                android:id="@+id/day_9"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <View
+        android:id="@+id/marginInsideBottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintTop_toBottomOf="@id/calenderRecycleView"
+        app:layout_constraintBottom_toBottomOf="@id/dayBackgroundLeft"
+        app:layout_constraintLeft_toRightOf="@id/ButtonPrevMonth"
+        app:layout_constraintRight_toLeftOf="@id/ButtonNextMonth" />
 
-            <LinearLayout
-                android:id="@+id/day_10"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <View
+        android:id="@+id/marginMiddle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_weight="3"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/dayBackgroundLeft"
+        app:layout_constraintRight_toLeftOf="@id/dayBackgroundRight"
+        app:layout_constraintTop_toBottomOf="@id/marginTop"
+        app:layout_constraintBottom_toTopOf="@id/marginBottom"/>
 
-            <LinearLayout
-                android:id="@+id/day_11"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <View
+        android:id="@+id/dayBackgroundRight"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintVertical_weight="70"
+        app:layout_constraintHorizontal_weight="30"
+        app:layout_constraintBottom_toTopOf="@id/marginBottom"
+        app:layout_constraintRight_toLeftOf="@id/marginRight"
+        app:layout_constraintLeft_toRightOf="@id/marginMiddle"
+        app:layout_constraintTop_toBottomOf="@id/marginRightMonth" />
 
-            <LinearLayout
-                android:id="@+id/day_12"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <TextView
+        android:id="@+id/dayBackground1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintVertical_weight="4"
+        app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintLeft_toRightOf="@id/marginLeft"
+        app:layout_constraintTop_toBottomOf="@id/marginTop"
+        app:layout_constraintRight_toLeftOf="@id/marginSmall1"
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth" />
 
-            <LinearLayout
-                android:id="@+id/day_13"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <View
+        android:id="@+id/marginSmall1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/dayBackground1"
+        app:layout_constraintRight_toLeftOf="@id/dayBackground2"
+        app:layout_constraintTop_toBottomOf="@id/marginTop"
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth"/>
 
-            <LinearLayout
-                android:id="@+id/day_14"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/dayBackground2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="5"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintLeft_toRightOf="@id/marginSmall1"
+        app:layout_constraintTop_toTopOf="@id/dayBackground1"
+        app:layout_constraintRight_toLeftOf="@id/marginSmall2"
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth" />
 
-        <LinearLayout
-            android:id="@+id/third_week_line"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
+    <View
+        android:id="@+id/marginSmall2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/dayBackground2"
+        app:layout_constraintRight_toLeftOf="@id/dayBackground3"
+        app:layout_constraintTop_toBottomOf="@id/marginTop"
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth"/>
 
-            <LinearLayout
-                android:id="@+id/day_15"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <TextView
+        android:id="@+id/dayBackground3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="5"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintLeft_toRightOf="@id/marginSmall2"
+        app:layout_constraintTop_toTopOf="@id/dayBackground2"
+        app:layout_constraintRight_toLeftOf="@id/marginSmall3"
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth" />
 
-            <LinearLayout
-                android:id="@+id/day_16"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <View
+        android:id="@+id/marginSmall3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@id/dayBackground3"
+        app:layout_constraintRight_toLeftOf="@id/dayBackground4"
+        app:layout_constraintTop_toBottomOf="@id/marginTop"
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth"/>
 
-            <LinearLayout
-                android:id="@+id/day_17"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <TextView
+        android:id="@+id/dayBackground4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="5"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintLeft_toRightOf="@id/marginSmall3"
+        app:layout_constraintTop_toTopOf="@id/dayBackground3"
+        app:layout_constraintRight_toLeftOf="@id/marginMiddle"
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth" />
 
-            <LinearLayout
-                android:id="@+id/day_18"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <TextView
+        android:id="@+id/aboutApp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintTop_toBottomOf="@id/marginTop"
+        app:layout_constraintBottom_toTopOf="@id/marginRightMonth"
+        app:layout_constraintLeft_toRightOf="@id/marginLeft2"
+        app:layout_constraintRight_toLeftOf="@id/marginRight2"/>
 
-            <LinearLayout
-                android:id="@+id/day_19"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <View
+        android:id="@+id/marginLeft2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/marginTop"
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth"
+        app:layout_constraintLeft_toRightOf="@id/marginMiddle"
+        app:layout_constraintRight_toLeftOf="@id/aboutApp"/>
 
-            <LinearLayout
-                android:id="@+id/day_20"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
+    <View
+        android:id="@+id/marginRight2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@id/aboutApp"
+        app:layout_constraintRight_toLeftOf="@id/marginRight"
+        app:layout_constraintTop_toBottomOf="@id/marginTop"
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth"/>
 
-            <LinearLayout
-                android:id="@+id/day_21"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/fourth_week_line"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
-
-            <LinearLayout
-                android:id="@+id/day_22"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/day_23"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/day_24"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/day_25"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/day_26"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/day_27"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/day_28"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/fifth_week_line"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
-
-            <LinearLayout
-                android:id="@+id/day_29"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/day_30"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/day_31"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/day_32"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/day_33"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/day_34"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-
-            <LinearLayout
-                android:id="@+id/day_35"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="vertical" />
-        </LinearLayout>
-
-    </TableLayout>
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

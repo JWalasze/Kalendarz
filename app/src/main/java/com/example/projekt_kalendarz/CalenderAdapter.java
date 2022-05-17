@@ -1,5 +1,6 @@
 package com.example.projekt_kalendarz;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,15 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder>
 {
     private final ArrayList<String> daysOfMonth;
     private final OnItemListener onItemListener;
+    private final int previousDaysNumber;
+    private final int daysOfMonthLength;
 
-    public CalenderAdapter(ArrayList<String> daysOfMonth, OnItemListener onItemListener)
+    public CalenderAdapter(ArrayList<String> daysOfMonth, OnItemListener onItemListener, int previousDaysNumber, int length)
     {
         this.daysOfMonth = daysOfMonth;
         this.onItemListener = onItemListener;
+        this.previousDaysNumber = previousDaysNumber;
+        this.daysOfMonthLength = length;
     }
 
     @NonNull
@@ -35,6 +40,14 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder>
     public void onBindViewHolder(@NonNull CalenderViewHolder holder, int position)
     {
         holder.dayOfMonth.setText(daysOfMonth.get(position));
+        if (position < previousDaysNumber - 1 || position > daysOfMonthLength + previousDaysNumber - 2)
+        {
+            holder.dayOfMonth.setTextColor(Color.parseColor("#A9A9A9"));
+        }
+        else
+        {
+            holder.dayOfMonth.setTextSize(30);
+        }
     }
 
     @Override

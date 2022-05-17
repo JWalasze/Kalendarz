@@ -25,7 +25,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             style="@style/MonthStyle"
-            android:text="Aprilolo 2022"/>
+            android:text="Nie powinienem tego widzieć"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/ButtonNextMonth"
