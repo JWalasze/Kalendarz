@@ -237,7 +237,6 @@
         android:id="@+id/calenderRecycleView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/days_rectangle"
         app:layout_constraintVertical_weight="40"
         app:layout_constraintHorizontal_weight="50"
         app:layout_constraintBottom_toTopOf="@id/marginInsideBottom"
@@ -260,7 +259,8 @@
         app:layout_constraintTop_toTopOf="@id/dayBackgroundLeft"
         app:layout_constraintBottom_toBottomOf="@id/dayBackgroundLeft"
         app:layout_constraintLeft_toLeftOf="@id/dayBackgroundLeft"
-        app:layout_constraintRight_toLeftOf="@id/marginInsideTop" />
+        app:layout_constraintRight_toLeftOf="@id/marginInsideTop"
+        android:onClick="previousMonthAction"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/ButtonNextMonth"
@@ -315,7 +315,7 @@
         app:layout_constraintTop_toBottomOf="@id/marginTop"
         app:layout_constraintBottom_toTopOf="@id/marginBottom"/>
 
-    <View
+    <FrameLayout
         android:id="@+id/dayBackgroundRight"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -370,7 +370,10 @@
         app:layout_constraintTop_toBottomOf="@id/marginTop"
         app:layout_constraintBottom_toTopOf="@id/marginTopMonth"/>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatButton
+        android:text="Miesięczne"
+        android:autoSizeTextType="uniform"
+        android:maxLines="2"
         android:id="@+id/dayBackground3"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -379,7 +382,8 @@
         app:layout_constraintLeft_toRightOf="@id/marginSmall2"
         app:layout_constraintTop_toTopOf="@id/dayBackground2"
         app:layout_constraintRight_toLeftOf="@id/marginSmall3"
-        app:layout_constraintBottom_toTopOf="@id/marginTopMonth" />
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth"
+        android:onClick="monthTasks"/>
 
     <View
         android:id="@+id/marginSmall3"
@@ -391,7 +395,10 @@
         app:layout_constraintTop_toBottomOf="@id/marginTop"
         app:layout_constraintBottom_toTopOf="@id/marginTopMonth"/>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatButton
+        android:text="Tygodniowe"
+        android:autoSizeTextType="uniform"
+        android:maxLines="1"
         android:id="@+id/dayBackground4"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -400,7 +407,8 @@
         app:layout_constraintLeft_toRightOf="@id/marginSmall3"
         app:layout_constraintTop_toTopOf="@id/dayBackground3"
         app:layout_constraintRight_toLeftOf="@id/marginMiddle"
-        app:layout_constraintBottom_toTopOf="@id/marginTopMonth" />
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth"
+        android:onClick="weekTasks"/>
 
     <TextView
         android:id="@+id/aboutApp"

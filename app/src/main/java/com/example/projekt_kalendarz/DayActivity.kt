@@ -43,6 +43,12 @@ class DayActivity : AppCompatActivity() {
                 Date(2022, 3, 2, 20, 0),
                 "Ukryta",
                 "Dziś spotkała mnie pewna sytuacja..."))
+        arrayTasks.add(
+            Task("Laryngolog",
+                Date(2022, 3, 2, 15, 45),
+                Date(2022, 3, 2, 16, 0),
+                "Świętego Antoniego",
+                "Pamiętać, żeby kupić jajka"))
 
         val calenderDayAdapter = RecyclerDayAdapter(this, arrayTasks, arrayTasks.size)
         recycleViewDay.adapter = calenderDayAdapter

@@ -1,11 +1,9 @@
 package com.example.projekt_kalendarz
 
 import android.content.Intent
-import android.content.Intent.ACTION_VIEW
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +18,7 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
     private lateinit var calenderRecycleView: RecyclerView
     private lateinit var selectedDate: LocalDate
     private lateinit var dayTextInView: TextView
+    private lateinit var view1: View
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -27,8 +26,16 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
         setContentView(R.layout.month_view)
         initWidgets()
         selectedDate = LocalDate.now()
-        selectedDate = selectedDate.plusMonths(1)
         setMonthView()
+
+        val monthFragment = FragmentTasksMonth()
+        //view1.visibility = View.GONE
+        //PAMIETAJ ŻE WIDOK PORTRET NIE MA FRAGMENTU DLATEGO WYWALA XDDD
+        /*supportFragmentManager.beginTransaction().apply {
+            replace(R.id.dayBackgroundRight, monthFragment)
+            commit()
+        }*/
+        //DAC UKRYJ WIDOK CZY COS...VISIBILITY...
     }
 
     //Inicjalizacja widoków
@@ -36,6 +43,7 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
     {
         calenderRecycleView = findViewById(R.id.calenderRecycleView)
         monthYearText = findViewById(R.id.monthYearTV)
+        view1 = findViewById(R.id.marginInsideBottom)
     }
 
     //Główna funkcja od tworzenia widoku miesięcznego, wywoływana za każdym razem jak idziemy
@@ -51,8 +59,17 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
         val previousDaysNumber: Int = getPreviousDaysNumber(dayOfWeek)
 
         val calenderAdapter: CalenderAdapter =
-            CalenderAdapter(daysInMonth, this, dayOfWeek, lengthMonth)
+            CalenderAdapter(
+                this,
+                daysInMonth,
+                this,
+                dayOfWeek,
+                lengthMonth,
+                selectedDate.monthValue,
+                selectedDate.year
+            )
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(applicationContext, 7)
+
         calenderRecycleView.layoutManager = layoutManager
         calenderRecycleView.adapter = calenderAdapter
     }
@@ -117,6 +134,24 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
         setMonthView()
     }
 
+    fun monthTasks(view: View)
+    {
+        val monthFragment = FragmentTasksMonth()
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.dayBackgroundRight, monthFragment)
+            commit()
+        }
+    }
+
+    fun weekTasks(view: View)
+    {
+        val weekFragment = FragmentTasksWeek()
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.dayBackgroundRight, weekFragment)
+            commit()
+        }
+    }
+
     private fun getPreviousDaysNumber(dayOfWeek: Int): Int
     {
         selectedDate = selectedDate.minusMonths(1)
@@ -128,16 +163,23 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
 
     override fun onItemClick(position: Int, dayText: String?)
     {
+        val firstOfMonth: LocalDate  = selectedDate.withDayOfMonth(1)
+        val dayOfWeek: Int = firstOfMonth.dayOfWeek.value
+        val lengthMonth: Int = YearMonth.from(selectedDate).lengthOfMonth()
+
         if (dayText != "")
         {
-            val message: String = dayText + " " + monthYearFromDate(selectedDate)
-            Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            if (position + 2 > dayOfWeek && position + 2 <= lengthMonth + dayOfWeek)
+            {
+                val message: String = dayText + " " + monthYearFromDate(selectedDate)
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
-            val intentDayView: Intent = Intent(applicationContext, DayActivity::class.java)
-            intentDayView.putExtra("DAY_NUMBER", dayText)
-            intentDayView.putExtra("MONTH_NUMBER", monthFromDate(selectedDate))
-            intentDayView.putExtra("YEAR_NUMBER", yearFromDate(selectedDate))
-            startActivity(intentDayView)
+                val intentDayView: Intent = Intent(applicationContext, DayActivity::class.java)
+                intentDayView.putExtra("DAY_NUMBER", dayText)
+                intentDayView.putExtra("MONTH_NUMBER", monthFromDate(selectedDate))
+                intentDayView.putExtra("YEAR_NUMBER", yearFromDate(selectedDate))
+                startActivity(intentDayView)
+            }
         }
     }
 }
