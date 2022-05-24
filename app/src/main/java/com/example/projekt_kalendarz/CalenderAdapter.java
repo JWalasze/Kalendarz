@@ -55,7 +55,7 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder>
                 && actualDate.getMonthValue() == this.monthValue
                 && actualDate.getYear() == this.yearValue)
         {
-            holder.myLayout.setBackground(ContextCompat.getDrawable(context, R.drawable.days_rectangle));
+            holder.myLayout.setBackground(ContextCompat.getDrawable(context, R.drawable.month_rectangle));
         }
 
         holder.dayOfMonth.setText(daysOfMonth.get(position));

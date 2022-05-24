@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintHorizontal_weight="4"
-        app:layout_constraintRight_toLeftOf="@id/monthYearTV"
+        app:layout_constraintRight_toLeftOf="@id/monthNameYearView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -32,7 +32,7 @@
         app:layout_constraintHorizontal_weight="150"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/marginLeft"
-        app:layout_constraintBottom_toTopOf="@id/dayBackground1"
+        app:layout_constraintBottom_toTopOf="@id/buttonChangeLanguage"
         app:layout_constraintRight_toLeftOf="@id/marginRight"/>
 
     <View
@@ -53,47 +53,35 @@
         app:layout_constraintVertical_weight="2"
         app:layout_constraintRight_toLeftOf="@id/marginMiddle"
         app:layout_constraintLeft_toRightOf="@id/marginLeft"
-        app:layout_constraintBottom_toTopOf="@id/monthYearTV"
-        app:layout_constraintTop_toBottomOf="@+id/dayBackground1"/>
+        app:layout_constraintBottom_toTopOf="@id/monthNameYearView"
+        app:layout_constraintTop_toBottomOf="@+id/buttonChangeLanguage"/>
 
     <View
         android:id="@+id/marginBottomMonth"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintVertical_weight="2"
-        app:layout_constraintTop_toBottomOf="@id/monthYearTV"
+        app:layout_constraintTop_toBottomOf="@id/monthNameYearView"
         app:layout_constraintBottom_toTopOf="@id/dayBackgroundLeft"
         app:layout_constraintLeft_toRightOf="@id/marginLeft"
         app:layout_constraintRight_toLeftOf="@id/marginMiddle" />
 
-    <View
-        android:id="@+id/marginRightMonth"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintVertical_weight="3"
-        app:layout_constraintLeft_toRightOf="@id/marginMiddle"
-        app:layout_constraintRight_toLeftOf="@id/marginRight"
-        app:layout_constraintTop_toBottomOf="@id/marginLeft2"
-        app:layout_constraintBottom_toBottomOf="@id/marginBottomMonth"/>
-
     <TextView
-        android:id="@+id/monthYearTV"
+        android:id="@+id/monthNameYearView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/miesiąc"
+        android:text="MARZEC"
         android:maxLines="1"
         android:textStyle="bold"
         android:autoSizeTextType="uniform"
-        android:textColor="@color/white"
         android:textAlignment="center"
         android:background="@drawable/rectangle"
         app:layout_constraintHorizontal_weight="100"
-        app:layout_constraintVertical_weight="7"
+        app:layout_constraintVertical_weight="10"
         app:layout_constraintBottom_toTopOf="@id/marginBottomMonth"
         app:layout_constraintRight_toLeftOf="@id/marginMiddle"
         app:layout_constraintLeft_toRightOf="@id/marginLeft"
-        app:layout_constraintTop_toBottomOf="@+id/marginTopMonth"
-        android:onClick="previousMonthAction" />
+        app:layout_constraintTop_toBottomOf="@+id/marginTopMonth" />
 
     <View
         android:id="@+id/dayBackgroundLeft"
@@ -122,7 +110,7 @@
         app:layout_constraintHorizontal_weight="50"
         app:layout_constraintTop_toBottomOf="@id/marginInsideTop"
         app:layout_constraintBottom_toTopOf="@id/calenderRecycleView"
-        app:layout_constraintLeft_toRightOf="@id/ButtonPrevMonth"
+        app:layout_constraintLeft_toRightOf="@id/previousYear"
         app:layout_constraintRight_toLeftOf="@id/Tue" />
 
     <TextView
@@ -231,27 +219,30 @@
         app:layout_constraintTop_toBottomOf="@id/marginInsideTop"
         app:layout_constraintBottom_toTopOf="@id/calenderRecycleView"
         app:layout_constraintLeft_toRightOf="@id/Sat"
-        app:layout_constraintRight_toLeftOf="@id/ButtonNextMonth" />
+        app:layout_constraintRight_toLeftOf="@id/nextYear" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/calenderRecycleView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_margin="2dp"
+        android:background="@drawable/days_rectangle"
         app:layout_constraintVertical_weight="40"
         app:layout_constraintHorizontal_weight="50"
         app:layout_constraintBottom_toTopOf="@id/marginInsideBottom"
-        app:layout_constraintRight_toLeftOf="@id/ButtonNextMonth"
-        app:layout_constraintLeft_toRightOf="@id/ButtonPrevMonth"
+        app:layout_constraintRight_toLeftOf="@id/nextYear"
+        app:layout_constraintLeft_toRightOf="@id/previousYear"
         app:layout_constraintTop_toBottomOf="@id/Mon" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/ButtonPrevMonth"
+        android:id="@+id/previousYear"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/buttonLeft"
+        android:text="@string/arrow_left"
         android:gravity="center"
         android:maxLines="1"
         android:autoSizeTextType="uniform"
+        android:autoSizeMaxTextSize="50sp"
         android:textColor="@color/white"
         android:background="@drawable/month_rectangle"
         app:layout_constraintVertical_weight="5"
@@ -263,13 +254,14 @@
         android:onClick="previousMonthAction"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/ButtonNextMonth"
+        android:id="@+id/nextYear"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/buttonRight"
+        android:text="@string/arrow_right"
         android:gravity="center"
         android:maxLines="1"
         android:autoSizeTextType="uniform"
+        android:autoSizeMaxTextSize="50sp"
         android:textColor="@color/white"
         android:background="@drawable/month_rectangle"
         app:layout_constraintVertical_weight="5"
@@ -278,17 +270,17 @@
         app:layout_constraintBottom_toBottomOf="@id/dayBackgroundLeft"
         app:layout_constraintLeft_toRightOf="@id/marginInsideTop"
         app:layout_constraintRight_toRightOf="@id/dayBackgroundLeft"
-        android:onClick="nextMonthAction" />
+        android:onClick="nextMonthAction"/>
 
     <View
         android:id="@+id/marginInsideTop"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/month_rectangle"
-        app:layout_constraintVertical_weight="5"
+        app:layout_constraintVertical_weight="3"
         app:layout_constraintHorizontal_weight="50"
-        app:layout_constraintRight_toLeftOf="@id/ButtonNextMonth"
-        app:layout_constraintLeft_toRightOf="@id/ButtonPrevMonth"
+        app:layout_constraintRight_toLeftOf="@id/nextYear"
+        app:layout_constraintLeft_toRightOf="@id/previousYear"
         app:layout_constraintBottom_toTopOf="@id/Mon"
         app:layout_constraintTop_toTopOf="@id/dayBackgroundLeft" />
 
@@ -297,12 +289,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/month_rectangle"
-        app:layout_constraintVertical_weight="5"
+        app:layout_constraintVertical_weight="3"
         app:layout_constraintHorizontal_weight="5"
         app:layout_constraintTop_toBottomOf="@id/calenderRecycleView"
         app:layout_constraintBottom_toBottomOf="@id/dayBackgroundLeft"
-        app:layout_constraintLeft_toRightOf="@id/ButtonPrevMonth"
-        app:layout_constraintRight_toLeftOf="@id/ButtonNextMonth" />
+        app:layout_constraintLeft_toRightOf="@id/previousYear"
+        app:layout_constraintRight_toLeftOf="@id/nextYear" />
 
     <View
         android:id="@+id/marginMiddle"
@@ -315,25 +307,136 @@
         app:layout_constraintTop_toBottomOf="@id/marginTop"
         app:layout_constraintBottom_toTopOf="@id/marginBottom"/>
 
-    <FrameLayout
+    <View
         android:id="@+id/dayBackgroundRight"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/month_rectangle"
-        app:layout_constraintVertical_weight="70"
         app:layout_constraintHorizontal_weight="30"
+        app:layout_constraintVertical_weight="70"
         app:layout_constraintBottom_toTopOf="@id/marginBottom"
-        app:layout_constraintRight_toLeftOf="@id/marginRight"
         app:layout_constraintLeft_toRightOf="@id/marginMiddle"
-        app:layout_constraintTop_toBottomOf="@id/marginRightMonth" />
+        app:layout_constraintRight_toLeftOf="@id/marginRight"
+        app:layout_constraintTop_toBottomOf="@id/marginTop"/>
 
     <TextView
-        android:id="@+id/dayBackground1"
+        android:id="@+id/marginInsideLeftR"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/month_rectangle"
-        app:layout_constraintVertical_weight="4"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintTop_toTopOf="@id/dayBackgroundRight"
+        app:layout_constraintBottom_toBottomOf="@id/dayBackgroundRight"
+        app:layout_constraintLeft_toLeftOf="@id/dayBackgroundRight"
+        app:layout_constraintRight_toLeftOf="@id/marginInsideTopR" />
+
+    <TextView
+        android:id="@+id/marginInsideRightR"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintVertical_weight="5"
+        app:layout_constraintHorizontal_weight="4"
+        app:layout_constraintTop_toTopOf="@id/dayBackgroundRight"
+        app:layout_constraintBottom_toBottomOf="@id/dayBackgroundRight"
+        app:layout_constraintLeft_toRightOf="@id/marginInsideTopR"
+        app:layout_constraintRight_toRightOf="@id/dayBackgroundRight" />
+
+    <View
+        android:id="@+id/marginInsideTopR"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintVertical_weight="2"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintRight_toLeftOf="@id/marginInsideRightR"
+        app:layout_constraintLeft_toRightOf="@id/marginInsideLeftR"
+        app:layout_constraintBottom_toTopOf="@id/notesHead"
+        app:layout_constraintTop_toTopOf="@id/dayBackgroundRight" />
+
+    <View
+        android:id="@+id/marginInsideBottomR"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintVertical_weight="2"
         app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintTop_toBottomOf="@id/habits"
+        app:layout_constraintBottom_toBottomOf="@id/dayBackgroundRight"
+        app:layout_constraintLeft_toRightOf="@id/marginInsideLeftR"
+        app:layout_constraintRight_toLeftOf="@id/marginInsideRightR" />
+
+    <TextView
+        android:id="@+id/notesHead"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:text="@string/notatki"
+        android:gravity="center"
+        android:textSize="11sp"
+        android:background="@drawable/days_rectangle"
+        app:layout_constraintVertical_weight="6"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintTop_toBottomOf="@id/marginInsideTopR"
+        app:layout_constraintLeft_toRightOf="@id/marginInsideLeftR"
+        app:layout_constraintRight_toLeftOf="@id/marginInsideRightR"
+        app:layout_constraintBottom_toTopOf="@id/notes"/>
+
+    <TextView
+        android:id="@+id/notes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/days_rectangle"
+        app:layout_constraintVertical_weight="40"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintTop_toBottomOf="@id/notesHead"
+        app:layout_constraintLeft_toRightOf="@id/marginInsideLeftR"
+        app:layout_constraintRight_toLeftOf="@id/marginInsideRightR"
+        app:layout_constraintBottom_toTopOf="@id/habitsHead"/>
+
+    <TextView
+        android:id="@+id/habitsHead"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:text="Zadania Miesięczne"
+        android:gravity="center"
+        android:textSize="11sp"
+        android:background="@drawable/days_rectangle"
+        app:layout_constraintVertical_weight="6"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintTop_toBottomOf="@id/notes"
+        app:layout_constraintLeft_toRightOf="@id/marginInsideLeftR"
+        app:layout_constraintRight_toLeftOf="@id/marginInsideRightR"
+        app:layout_constraintBottom_toTopOf="@id/habits"/>
+
+    <TextView
+        android:id="@+id/habits"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/days_rectangle"
+        app:layout_constraintVertical_weight="40"
+        app:layout_constraintHorizontal_weight="50"
+        app:layout_constraintTop_toBottomOf="@id/habitsHead"
+        app:layout_constraintLeft_toRightOf="@id/marginInsideLeftR"
+        app:layout_constraintRight_toLeftOf="@id/marginInsideRightR"
+        app:layout_constraintBottom_toTopOf="@id/marginInsideBottomR"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonChangeLanguage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMaxTextSize="16sp"
+        android:text="@string/zmien_jezyk"
+        android:maxLines="2"
+        android:background="@drawable/month_rectangle"
+        app:layout_constraintVertical_weight="8"
+        app:layout_constraintHorizontal_weight="6"
         app:layout_constraintLeft_toRightOf="@id/marginLeft"
         app:layout_constraintTop_toBottomOf="@id/marginTop"
         app:layout_constraintRight_toLeftOf="@id/marginSmall1"
@@ -344,19 +447,24 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintLeft_toRightOf="@id/dayBackground1"
-        app:layout_constraintRight_toLeftOf="@id/dayBackground2"
+        app:layout_constraintLeft_toRightOf="@id/buttonChangeLanguage"
+        app:layout_constraintRight_toLeftOf="@id/viewMonth"
         app:layout_constraintTop_toBottomOf="@id/marginTop"
         app:layout_constraintBottom_toTopOf="@id/marginTopMonth"/>
 
-    <TextView
-        android:id="@+id/dayBackground2"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/viewMonth"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintHorizontal_weight="5"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMaxTextSize="16sp"
+        android:text="@string/widok_m"
+        android:maxLines="2"
+        app:layout_constraintHorizontal_weight="6"
         android:background="@drawable/month_rectangle"
         app:layout_constraintLeft_toRightOf="@id/marginSmall1"
-        app:layout_constraintTop_toTopOf="@id/dayBackground1"
+        app:layout_constraintTop_toTopOf="@id/buttonChangeLanguage"
         app:layout_constraintRight_toLeftOf="@id/marginSmall2"
         app:layout_constraintBottom_toTopOf="@id/marginTopMonth" />
 
@@ -365,77 +473,68 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintLeft_toRightOf="@id/dayBackground2"
-        app:layout_constraintRight_toLeftOf="@id/dayBackground3"
+        app:layout_constraintLeft_toRightOf="@id/viewMonth"
+        app:layout_constraintRight_toLeftOf="@id/viewYear"
         app:layout_constraintTop_toBottomOf="@id/marginTop"
         app:layout_constraintBottom_toTopOf="@id/marginTopMonth"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:text="Miesięczne"
-        android:autoSizeTextType="uniform"
-        android:maxLines="2"
-        android:id="@+id/dayBackground3"
+        android:id="@+id/viewYear"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintHorizontal_weight="5"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMaxTextSize="16sp"
+        android:text="@string/widok_r"
+        android:maxLines="2"
+        app:layout_constraintHorizontal_weight="6"
         android:background="@drawable/month_rectangle"
         app:layout_constraintLeft_toRightOf="@id/marginSmall2"
-        app:layout_constraintTop_toTopOf="@id/dayBackground2"
+        app:layout_constraintTop_toTopOf="@id/viewMonth"
         app:layout_constraintRight_toLeftOf="@id/marginSmall3"
         app:layout_constraintBottom_toTopOf="@id/marginTopMonth"
-        android:onClick="monthTasks"/>
+        android:onClick="viewYearButton"/>
 
     <View
         android:id="@+id/marginSmall3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintLeft_toRightOf="@id/dayBackground3"
-        app:layout_constraintRight_toLeftOf="@id/dayBackground4"
+        app:layout_constraintLeft_toRightOf="@id/viewYear"
+        app:layout_constraintRight_toLeftOf="@id/aboutApp"
         app:layout_constraintTop_toBottomOf="@id/marginTop"
         app:layout_constraintBottom_toTopOf="@id/marginTopMonth"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:text="Tygodniowe"
-        android:autoSizeTextType="uniform"
-        android:maxLines="1"
-        android:id="@+id/dayBackground4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintHorizontal_weight="5"
-        android:background="@drawable/month_rectangle"
-        app:layout_constraintLeft_toRightOf="@id/marginSmall3"
-        app:layout_constraintTop_toTopOf="@id/dayBackground3"
-        app:layout_constraintRight_toLeftOf="@id/marginMiddle"
-        app:layout_constraintBottom_toTopOf="@id/marginTopMonth"
-        android:onClick="weekTasks"/>
-
-    <TextView
         android:id="@+id/aboutApp"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:autoSizeMaxTextSize="16sp"
+        android:text="@string/o_aplikacji"
+        android:maxLines="2"
+        app:layout_constraintHorizontal_weight="6"
         android:background="@drawable/month_rectangle"
-        app:layout_constraintTop_toBottomOf="@id/marginTop"
-        app:layout_constraintBottom_toTopOf="@id/marginRightMonth"
-        app:layout_constraintLeft_toRightOf="@id/marginLeft2"
-        app:layout_constraintRight_toLeftOf="@id/marginRight2"/>
+        app:layout_constraintLeft_toRightOf="@id/marginSmall3"
+        app:layout_constraintTop_toTopOf="@id/viewYear"
+        app:layout_constraintRight_toLeftOf="@id/marginMiddle"
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth"/>
 
     <View
         android:id="@+id/marginLeft2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/marginTop"
         app:layout_constraintBottom_toTopOf="@id/marginTopMonth"
         app:layout_constraintLeft_toRightOf="@id/marginMiddle"
-        app:layout_constraintRight_toLeftOf="@id/aboutApp"/>
+        app:layout_constraintTop_toBottomOf="@id/marginTop" />
 
     <View
         android:id="@+id/marginRight2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintLeft_toRightOf="@id/aboutApp"
+        app:layout_constraintBottom_toTopOf="@id/marginTopMonth"
         app:layout_constraintRight_toLeftOf="@id/marginRight"
-        app:layout_constraintTop_toBottomOf="@id/marginTop"
-        app:layout_constraintBottom_toTopOf="@id/marginTopMonth"/>
+        app:layout_constraintTop_toBottomOf="@id/marginTop" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

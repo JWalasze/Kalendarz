@@ -7,8 +7,8 @@
     <string name="day_Friday">F</string>
     <string name="day_Saturday">S</string>
     <string name="day_Sunday">S</string>
-    <string name="arrow_left">&lt;-</string>
-    <string name="arrow_right">-&gt;</string>
+    <string name="arrow_left">&lt;</string>
+    <string name="arrow_right">&gt;</string>
     <string name="Jan">January</string>
     <string name="Feb">February</string>
     <string name="March">March</string>
@@ -49,4 +49,71 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Zadania miesięczne</string>
 
+    <string name="widok_d">Widok Dzienny</string>
+    <string name="widok_m">Widok Miesięczny</string>
+    <string name="widok_r">Widok Roczny</string>
+    <string name="o_aplikacji">O Aplikacji</string>
+    <string name="d_view">Day View</string>
+    <string name="m_view">Month View</string>
+    <string name="y_view">Year View</string>
+    <string name="about_app">About App</string>
+
+    <string name="zadania">Zadania</string>
+    <string name="tasks">Tasks</string>
+    <string name="notatki">Notatki</string>
+    <string name="notes">Notes</string>
+
+    <string name="JanHead">January</string>
+    <string name="FebHead">February</string>
+    <string name="MarchHead">March</string>
+    <string name="AprilHead">April</string>
+    <string name="MayHead">May</string>
+    <string name="JuneHead">June</string>
+    <string name="JulyHead">July</string>
+    <string name="AugHead">August</string>
+    <string name="SepHead">September</string>
+    <string name="OctHead">October</string>
+    <string name="NovHead">November</string>
+    <string name="DecHead">December</string>
+    <string name="StyczenHead">Styczeń</string>
+    <string name="LutyHead">Luty</string>
+    <string name="MarzecHead">Marzec</string>
+    <string name="KwiecienHead">Kwiecień</string>
+    <string name="MajHead">Maj</string>
+    <string name="CzerwiecHead">Czerwiec</string>
+    <string name="LipiecHead">Lipie</string>
+    <string name="SierpienHead">Sierpień</string>
+    <string name="WrzesienHead">Wrzesień</string>
+    <string name="PazdziernikHead">Październik</string>
+    <string name="ListopadHead">Listopad</string>
+    <string name="GrudzienHead">Grudzień</string>
+
+    <string name="Styczen">Sty</string>
+    <string name="Luty">Lut</string>
+    <string name="Marzec">Mar</string>
+    <string name="Kwiecien">Kwi</string>
+    <string name="Maj">Maj</string>
+    <string name="Czerwiec">Cze</string>
+    <string name="Lipiec">Lip</string>
+    <string name="Sierpien">Sie</string>
+    <string name="Wrzesien">Wrz</string>
+    <string name="Pazdziernik">Paź</string>
+    <string name="Listopad">Lis</string>
+    <string name="Grudzien">Gru</string>
+    <string name="zmien_jezyk">zmień język</string>
+
+    <string-array name="miesiace_array">
+        <item>Styczeń</item>
+        <item>Luty</item>
+        <item>Marzec</item>
+        <item>Kwiecień</item>
+        <item>Maj</item>
+        <item>Czerwiec</item>
+        <item>Lipiec</item>
+        <item>Sierpień</item>
+        <item>Wrzesień</item>
+        <item>Październik</item>
+        <item>Listopad</item>
+        <item>Gurdzień</item>
+    </string-array>
 </resources>

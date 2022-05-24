@@ -1,13 +1,18 @@
 package com.example.projekt_kalendarz
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.time.LocalDate
+import java.time.Year
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
@@ -38,12 +43,34 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
         //DAC UKRYJ WIDOK CZY COS...VISIBILITY...
     }
 
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle)
+    {
+        outState.putInt("SELECTED_DATE_MONTH", selectedDate.monthValue)
+        outState.putInt("SELECTED_DATE_YEAR", selectedDate.year)
+        super.onSaveInstanceState(outState, outPersistentState)
+        //val myBundle: Bundle = Bundle()
+        //myBundle.putSerializable("SELECTED_DATE", selectedDate)
+
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle)
+    {
+
+
+        val currentYears: Int = selectedDate.year
+        val yearsToAdd: Int = currentYears - savedInstanceState.getInt("SELECTED_DATE_YEAR")
+        selectedDate = selectedDate.plusYears(yearsToAdd.toLong())
+
+        //selectedDate = selectedDate.plusYears(4)
+        setMonthView()
+    }
+
     //Inicjalizacja widoków
     private fun initWidgets()
     {
         calenderRecycleView = findViewById(R.id.calenderRecycleView)
-        monthYearText = findViewById(R.id.monthYearTV)
-        view1 = findViewById(R.id.marginInsideBottom)
+        monthYearText = findViewById(R.id.monthNameYearView)
+        //view1 = findViewById(R.id.whiteSpace)
     }
 
     //Główna funkcja od tworzenia widoku miesięcznego, wywoływana za każdym razem jak idziemy
@@ -181,5 +208,37 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
                 startActivity(intentDayView)
             }
         }
+    }
+
+    fun viewYearButton(view: View)
+    {
+        val intentYearView: Intent = Intent(applicationContext, YearActivity::class.java)
+        intentYearView.putExtra("SELECTED_DATE_MONTH", selectedDate.monthValue)
+        intentYearView.putExtra("SELECTED_DATE_YEAR", selectedDate.year)
+        //monthYearText.text = selectedDate.year.toString()
+        getResultYearView.launch(intentYearView)
+    }
+
+    private val getResultYearView =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()) {
+            if(it.resultCode == Activity.RESULT_OK) {
+                val extraYear: Int? = it.data?.getIntExtra("NEW_YEAR", -1)
+                val extraMonth: Int? = it.data?.getIntExtra("NEW_MONTH", -1)
+                if (extraMonth != null && extraYear != null)
+                {
+                    changeSelectedDate(extraYear, extraMonth)
+                }
+                setMonthView()
+            }
+        }
+
+    private fun changeSelectedDate(extraYear: Int, extraMonth: Int)
+    {
+        val tempYear: Long = (selectedDate.year - extraYear).toLong()
+        //monthYearText.text = extraYear.toString()
+        val tempMonth: Long = (selectedDate.monthValue - extraMonth).toLong()
+        selectedDate = selectedDate.minusYears(tempYear)
+        selectedDate = selectedDate.minusMonths(tempMonth)
     }
 }
