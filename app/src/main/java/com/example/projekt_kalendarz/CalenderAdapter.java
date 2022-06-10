@@ -51,12 +51,6 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder>
     public void onBindViewHolder(@NonNull CalenderViewHolder holder, int position)
     {
         LocalDateTime actualDate = LocalDateTime.now();
-        if (Integer.toString(actualDate.getDayOfMonth()).equals(daysOfMonth.get(position))
-                && actualDate.getMonthValue() == this.monthValue
-                && actualDate.getYear() == this.yearValue)
-        {
-            holder.myLayout.setBackground(ContextCompat.getDrawable(context, R.drawable.month_rectangle));
-        }
 
         holder.dayOfMonth.setText(daysOfMonth.get(position));
         if (position < previousDaysNumber - 1 || position > daysOfMonthLength + previousDaysNumber - 2)
@@ -66,6 +60,12 @@ public class CalenderAdapter extends RecyclerView.Adapter<CalenderViewHolder>
         else
         {
             holder.dayOfMonth.setTextSize(30);
+            if (Integer.toString(actualDate.getDayOfMonth()).equals(daysOfMonth.get(position))
+                    && actualDate.getMonthValue() == this.monthValue
+                    && actualDate.getYear() == this.yearValue)
+            {
+                holder.myLayout.setBackground(ContextCompat.getDrawable(context, R.drawable.month_rectangle));
+            }
         }
     }
 

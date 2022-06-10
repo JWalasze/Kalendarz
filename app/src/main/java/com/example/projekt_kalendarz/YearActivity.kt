@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import java.time.LocalDate
 import kotlin.properties.Delegates
 
@@ -28,7 +29,8 @@ class YearActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var buttonNextYear: Button
     private lateinit var buttonPreviousYear: Button
     private lateinit var buttonViewMonth: Button
-
+    private lateinit var buttonViewYear: Button
+    private lateinit var buttonViewDay: Button
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -62,6 +64,21 @@ class YearActivity : AppCompatActivity(), View.OnClickListener {
         buttonPreviousYear.setOnClickListener(this)
         buttonNextYear.setOnClickListener(this)
         buttonViewMonth.setOnClickListener(this)
+        buttonViewYear.setOnClickListener(this)
+        buttonViewDay.setOnClickListener(this)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle)
+    {
+        outState.putInt("SELECTED_DATE_YEAR", selectedDate.year)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle)
+    {
+        val yearsToAdd: Int = selectedDate.year - savedInstanceState.getInt("SELECTED_DATE_YEAR")
+        selectedDate = selectedDate.minusYears(yearsToAdd.toLong())
+        yearName.text = selectedDate.year.toString()
     }
 
     private fun initWidgets()
@@ -82,6 +99,7 @@ class YearActivity : AppCompatActivity(), View.OnClickListener {
         buttonPreviousYear = findViewById(R.id.previousYear)
         buttonNextYear = findViewById(R.id.nextYear)
         buttonViewMonth = findViewById(R.id.viewMonth)
+        buttonViewYear = findViewById(R.id.viewYear)
     }
 
     override fun onClick(view: View)
@@ -110,6 +128,14 @@ class YearActivity : AppCompatActivity(), View.OnClickListener {
                 selectedDate = selectedDate.plusYears(1)
                 yearName.text = selectedDate.year.toString()
             }
+            R.id.viewYear ->
+            {
+                Toast.makeText(this, R.string.odpowiedz2, Toast.LENGTH_LONG).show()
+            }
+            R.id.viewDay ->
+            {
+                Toast.makeText(this, R.string.odpowiedz2, Toast.LENGTH_LONG).show()
+            }
             R.id.viewMonth -> {setResult(selectedDate.year, selectedDate.monthValue)}
         }
     }
@@ -123,5 +149,4 @@ class YearActivity : AppCompatActivity(), View.OnClickListener {
         setResult(RESULT_OK, myMonthIntent)
         finish()
     }
-
 }

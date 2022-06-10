@@ -1,7 +1,10 @@
 package com.example.projekt_kalendarz
 
 import android.app.Activity
+import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
+import android.database.Cursor
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
@@ -11,6 +14,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mysql.jdbc.ResultSet
+import org.intellij.lang.annotations.Language
+import java.sql.Connection
+import java.sql.DriverManager
+import java.sql.Statement
 import java.time.LocalDate
 import java.time.Year
 import java.time.YearMonth
@@ -33,6 +41,15 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
         selectedDate = LocalDate.now()
         setMonthView()
 
+
+        val PREFERENCE_NAME = "SharedPreferenceExample"
+        val PREFERENCE_LANGUAGE = "Language"
+
+        val preference = this.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
+        val editor = preference.edit()
+        editor.putString(PREFERENCE_LANGUAGE, "en")
+        editor.apply()
+
         val monthFragment = FragmentTasksMonth()
         //view1.visibility = View.GONE
         //PAMIETAJ ŻE WIDOK PORTRET NIE MA FRAGMENTU DLATEGO WYWALA XDDD
@@ -41,27 +58,34 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
             commit()
         }*/
         //DAC UKRYJ WIDOK CZY COS...VISIBILITY...
+        /*var myString: String = ""
+        try {
+            Class.forName("com.mysql.jdbc.Driver")
+            val connection:  Connection =  DriverManager.getConnection("jdbc:mysql://127.0.0.1/android", "root", "root") as Connection
+
+            //monthYearText.text = myString.toString()
+        }
+        catch (e: Exception)
+        {
+            monthYearText.text = "NO nie jest dobrze"
+        }*/
+        /*val myConnect: ConnectMySql = ConnectMySql()
+        ConnectMySql.execute {  }*/
     }
 
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle)
+    override fun onSaveInstanceState(outState: Bundle)
     {
         outState.putInt("SELECTED_DATE_MONTH", selectedDate.monthValue)
         outState.putInt("SELECTED_DATE_YEAR", selectedDate.year)
-        super.onSaveInstanceState(outState, outPersistentState)
-        //val myBundle: Bundle = Bundle()
-        //myBundle.putSerializable("SELECTED_DATE", selectedDate)
-
+        super.onSaveInstanceState(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle)
     {
-
-
-        val currentYears: Int = selectedDate.year
-        val yearsToAdd: Int = currentYears - savedInstanceState.getInt("SELECTED_DATE_YEAR")
-        selectedDate = selectedDate.plusYears(yearsToAdd.toLong())
-
-        //selectedDate = selectedDate.plusYears(4)
+        val yearsToAdd: Int = selectedDate.year - savedInstanceState.getInt("SELECTED_DATE_YEAR")
+        val monthsToAdd: Int = selectedDate.monthValue - savedInstanceState.getInt("SELECTED_DATE_MONTH")
+        selectedDate = selectedDate.minusYears(yearsToAdd.toLong())
+        selectedDate = selectedDate.minusMonths(monthsToAdd.toLong())
         setMonthView()
     }
 
@@ -205,7 +229,8 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
                 intentDayView.putExtra("DAY_NUMBER", dayText)
                 intentDayView.putExtra("MONTH_NUMBER", monthFromDate(selectedDate))
                 intentDayView.putExtra("YEAR_NUMBER", yearFromDate(selectedDate))
-                startActivity(intentDayView)
+                getResultDayView.launch(intentDayView)
+                //startActivity(intentDayView)
             }
         }
     }
@@ -218,6 +243,21 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
         //monthYearText.text = selectedDate.year.toString()
         getResultYearView.launch(intentYearView)
     }
+
+    private val getResultDayView =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()) {
+            if(it.resultCode == Activity.RESULT_OK) {
+                val extraYear: Int? = it.data?.getIntExtra("NEW_YEAR", -1)
+                val extraMonth: Int? = it.data?.getIntExtra("NEW_MONTH", -1)
+                val extraString: String? = it.data?.getStringExtra("MONTH_OR_YEAR")
+                if (extraMonth != null && extraYear != null)
+                {
+                    changeSelectedDate(extraYear, extraMonth)
+                }
+                setMonthView()
+            }
+        }
 
     private val getResultYearView =
         registerForActivityResult(
@@ -241,4 +281,7 @@ class MainActivity : AppCompatActivity(), CalenderAdapter.OnItemListener
         selectedDate = selectedDate.minusYears(tempYear)
         selectedDate = selectedDate.minusMonths(tempMonth)
     }
+
 }
+
+

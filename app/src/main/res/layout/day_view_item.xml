@@ -27,28 +27,28 @@
                 android:id="@+id/nameOfActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/taskDetails"
+                android:text="AA"
                 android:layout_margin="10dp"/>
 
             <TextView
                 android:id="@+id/startDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/taskDetails"
+                android:text="AA"
                 android:layout_margin="10dp" />
 
             <TextView
                 android:id="@+id/endDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/taskDetails"
+                android:text="AA"
                 android:layout_margin="10dp" />
 
             <TextView
                 android:id="@+id/localization"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/taskDetails"
+                android:text="AA"
                 android:layout_margin="10dp" />
 
         </LinearLayout>

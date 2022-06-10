@@ -8,6 +8,10 @@
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/drawable/month_rectangle.xml" value="0.2085" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/drawable/present_day.xml" value="0.231" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/drawable/rectangle.xml" value="0.2085" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout-land/add_task1.xml" value="0.21516754850088182" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout-land/add_task2.xml" value="0.21516754850088182" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout-land/add_task3.xml" value="0.21516754850088182" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout-land/add_task4.xml" value="0.21516754850088182" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout-land/day_view.xml" value="0.21516754850088182" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout-land/month_view.xml" value="0.2" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout-land/year_view.xml" value="0.21535745807590467" />
@@ -16,6 +20,11 @@
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/activity_constrain.xml" value="0.264" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/activity_main.xml" value="0.128" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/activity_year.xml" value="0.20863616930312098" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/add_task.xml" value="0.20863616930312098" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/add_task1.xml" value="0.20863616930312098" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/add_task2.xml" value="0.20863616930312098" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/add_task3.xml" value="0.20863616930312098" />
+        <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/add_task4.xml" value="0.20863616930312098" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/calender_cell.xml" value="0.20863616930312098" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/callender_cell.xml" value="0.20863616930312098" />
         <entry key="..\:/ProgramFiles/Android/AndroidStudioProjects/Projekt_kalendarz/app/src/main/res/layout/day_view.xml" value="0.20863616930312098" />

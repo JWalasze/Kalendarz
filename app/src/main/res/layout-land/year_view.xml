@@ -32,7 +32,7 @@
         app:layout_constraintHorizontal_weight="150"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/marginLeft"
-        app:layout_constraintBottom_toTopOf="@id/buttonChangeLanguage"
+        app:layout_constraintBottom_toTopOf="@id/viewDay"
         app:layout_constraintRight_toLeftOf="@id/marginRight"/>
 
     <View
@@ -54,7 +54,7 @@
         app:layout_constraintRight_toLeftOf="@id/marginRight"
         app:layout_constraintLeft_toRightOf="@id/marginLeft"
         app:layout_constraintBottom_toTopOf="@id/monthNameYearView"
-        app:layout_constraintTop_toBottomOf="@+id/buttonChangeLanguage"/>
+        app:layout_constraintTop_toBottomOf="@+id/viewDay"/>
 
     <View
         android:id="@+id/marginBottomMonth"
@@ -302,7 +302,7 @@
         android:id="@+id/previousYear"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/arrow_left"
+        android:text="@string/strzalka_lewo"
         android:gravity="center"
         android:maxLines="1"
         android:autoSizeTextType="uniform"
@@ -320,7 +320,7 @@
         android:id="@+id/nextYear"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/arrow_right"
+        android:text="@string/strzalka_prawo"
         android:gravity="center"
         android:maxLines="1"
         android:autoSizeTextType="uniform"
@@ -359,7 +359,7 @@
         app:layout_constraintRight_toLeftOf="@id/nextYear" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonChangeLanguage"
+        android:id="@+id/viewDay"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
@@ -380,7 +380,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintLeft_toRightOf="@id/buttonChangeLanguage"
+        app:layout_constraintLeft_toRightOf="@id/viewDay"
         app:layout_constraintRight_toLeftOf="@id/viewMonth"
         app:layout_constraintTop_toBottomOf="@id/marginTop"
         app:layout_constraintBottom_toTopOf="@id/marginTopMonth"/>
@@ -397,7 +397,7 @@
         app:layout_constraintHorizontal_weight="6"
         android:background="@drawable/month_rectangle"
         app:layout_constraintLeft_toRightOf="@id/marginSmall1"
-        app:layout_constraintTop_toTopOf="@id/buttonChangeLanguage"
+        app:layout_constraintTop_toTopOf="@id/viewDay"
         app:layout_constraintRight_toLeftOf="@id/marginSmall2"
         app:layout_constraintBottom_toTopOf="@id/marginTopMonth" />
 
