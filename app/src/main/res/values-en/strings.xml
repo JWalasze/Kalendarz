@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calendar</string>
+    <string name="nazwa_apki">Project Calendar</string>
+
+    <string name="rzmien_jezyk">Day View</string>
+    <string name="zmien_jezyk">Day View</string>
+    <string name="widok_m">Month \nView</string>
+    <string name="widok_r">Year \nView</string>
+    <string name="rwidok_m">Month View</string>
+    <string name="rwidok_r">Year View</string>
+    <string name="o_aplikacji">About App</string>
+
+    <string name="odpowiedz">You are already in day view</string>
+    <string name="odpowiedz2">You are already in year view</string>
+    <string name="odpowiedz3">You are already in month view</string>
+
+    <string name="zadania">Tasks</string>
+    <string name="nawyki">Habits</string>
+    <string name="notatki">Notes</string>
+
+    <string name="zadanie_tytul">&#032;&#032;Add Task&#032;&#032;</string>
+    <string name="kategoria_zadania">Task category</string>
+    <string name="cyklicznosc">Periodicity</string>
+    <string name="dodaj_zadanie">Provide the task name</string>
+    <string name="dodaj_opis">Task note</string>
+    <string name="ile_dni">Day amount</string>
+    <string name="godz_rozp">Start time</string>
+    <string name="godz_zakoncz">Finish time</string>
+
+    <string name ="dodaj">Confirm</string>
+    <string name ="anuluj">Cancel</string>
+
+    <string name="dzien_poniedzialek">M</string>
+    <string name="dzien_wtorek">T</string>
+    <string name="dzien_sroda">W</string>
+    <string name="dzien_czwartek">T</string>
+    <string name="dzien_piatek">F</string>
+    <string name="dzien_sobota">S</string>
+    <string name="dzien_niedziela">S</string>
+    <string name="strzalka_lewo">&#032;&lt;&#032;</string>
+    <string name="strzalka_prawo">&#032;&gt;&#032;</string>
+
+    <string name="StyczenHead">JANUARY</string>
+    <string name="LutyHead">FEBRUARY</string>
+    <string name="MarzecHead">MARCH</string>
+    <string name="KwiecienHead">APRIL</string>
+    <string name="MajHead">MAY</string>
+    <string name="CzerwiecHead">JUNE</string>
+    <string name="LipiecHead">JULY</string>
+    <string name="SierpienHead">AUGUST</string>
+    <string name="WrzesienHead">SEPTEMBER</string>
+    <string name="PazdziernikHead">OCTOBER</string>
+    <string name="ListopadHead">NOVEMBER</string>
+    <string name="GrudzienHead">DECEMBER</string>
+
+    <string name="Styczen">Jan</string>
+    <string name="Luty">Feb</string>
+    <string name="Marzec">Mar</string>
+    <string name="Kwiecien">Apr</string>
+    <string name="Maj">May</string>
+    <string name="Czerwiec">Jun</string>
+    <string name="Lipiec">Jul</string>
+    <string name="Sierpien">Aug</string>
+    <string name="Wrzesien">Sep</string>
+    <string name="Pazdziernik">Oct</string>
+    <string name="Listopad">Nov</string>
+    <string name="Grudzien">Dec</string>
+
+</resources>
